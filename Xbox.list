@@ -1,7 +1,7 @@
 DOMAIN-KEYWORD,xbox
-DOMAIN,collections.mp.microsoft.com
-DOMAIN,collections.md.mp.microsoft.com
-DOMAIN,ctldl.windowsupdate.com
-DOMAIN,client.wns.windows.com
-DOMAIN,v10.events.data.microsoft.com
-DOMAIN-SUFFIX,cloudapp.net
+#DOMAIN,collections.mp.microsoft.com
+#DOMAIN,collections.md.mp.microsoft.com
+#DOMAIN,ctldl.windowsupdate.com
+#DOMAIN,client.wns.windows.com
+#DOMAIN,v10.events.data.microsoft.com
+#DOMAIN-SUFFIX,cloudapp.net
