@@ -3,3 +3,4 @@ DOMAIN,collections.mp.microsoft.com
 DOMAIN,collections.md.mp.microsoft.com
 DOMAIN,ctldl.windowsupdate.com
 DOMAIN,client.wns.windows.com
+DOMAIN-SUFFIX,cloudapp.net
