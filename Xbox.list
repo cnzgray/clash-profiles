@@ -2,3 +2,4 @@
 DOMAIN,xgpuweb.gssv-play-prod.xboxlive.com
 # xbox cloud的身份认证重定向到这个dns
 DOMAIN,part-0011.t-0009.t-msedge.net
+DOMAIN-SUFFIX,part-0011.t-0009.t-msedge.net
