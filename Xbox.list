@@ -1,7 +1,4 @@
-#DOMAIN-KEYWORD,xbox
-#DOMAIN,collections.mp.microsoft.com
-#DOMAIN,collections.md.mp.microsoft.com
-#DOMAIN,ctldl.windowsupdate.com
-#DOMAIN,client.wns.windows.com
-#DOMAIN,v10.events.data.microsoft.com
-#DOMAIN-SUFFIX,cloudapp.net
+# xbox cloud的身份认证地址
+DOMAIN,xgpuweb.gssv-play-prod.xboxlive.com
+# xbox cloud的身份认证重定向到这个dns
+DOMAIN,part-0011.t-0009.t-msedge.net
