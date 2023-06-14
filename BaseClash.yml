@@ -11,21 +11,21 @@ dns:
   - 119.29.29.29
   - 223.5.5.5
   fallback:
-  - https://127.0.0.1:53531/dns-query
-  - tls://127.0.0.1:53532
-  - https://127.0.0.1:53533/dns-query
+  - tcp://127.0.0.1:5331
+  - tcp://127.0.0.1:5332
+  - tcp://127.0.0.1:5333
 
 tunnels:
-  - network: [tcp, udp]
-    address: 127.0.0.1:53531
-    target: 1.1.1.1 # dns.cloudflare.com
+  - network: [tcp]
+    address: 127.0.0.1:5331
+    target: 1.1.1.1:53 # dns.cloudflare.com
     proxy: 🚀 节点选择
-  - network: [tcp, udp]
-    address: 127.0.0.1:53532
-    target: 8.8.8.8 # dns.google
+  - network: [tcp]
+    address: 127.0.0.1:5332
+    target: 8.8.8.8:53 # dns.google
     proxy: 🚀 节点选择
-  - network: [tcp, udp]
-    address: 127.0.0.1:53533
-    target: 103.2.57.5 # public.dns.iij.jp
+  - network: [tcp]
+    address: 127.0.0.1:5333
+    target: 103.2.57.5:53 # public.dns.iij.jp
     proxy: 🚀 节点选择
   
