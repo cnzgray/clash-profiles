@@ -1,0 +1,31 @@
+port: 7890
+socks-port: 7891
+allow-lan: true
+mode: rule
+log-level: silent
+external-controller: 0.0.0.0:9090
+
+dns:
+  nameserver:
+  - 114.114.114.114
+  - 119.29.29.29
+  - 223.5.5.5
+  fallback:
+  - https://127.0.0.1:53531/dns-query
+  - https://127.0.0.1:53532/dns-query
+  - https://127.0.0.1:53533/dns-query
+
+tunnels:
+  - network: [tcp, udp]
+    address: 127.0.0.1:53531
+    target: 1.1.1.1 # dns.cloudflare.com
+    proxy: 🚀 节点选择
+  - network: [tcp, udp]
+    address: 127.0.0.1:53532
+    target: 8.8.8.8 # dns.google
+    proxy: 🚀 节点选择
+  - network: [tcp, udp]
+    address: 127.0.0.1:53533
+    target: 103.2.57.5 # public.dns.iij.jp
+    proxy: 🚀 节点选择
+  
