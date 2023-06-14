@@ -12,7 +12,7 @@ dns:
   - 223.5.5.5
   fallback:
   - https://127.0.0.1:53531/dns-query
-  - https://127.0.0.1:53532/dns-query
+  - tls://127.0.0.1:53532
   - https://127.0.0.1:53533/dns-query
 
 tunnels:
