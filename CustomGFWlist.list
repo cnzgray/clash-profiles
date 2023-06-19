@@ -1,3 +1,6 @@
 DOMAIN-SUFFIX,zh.ifixit.com
+# 微软网络连接测试服务
 DOMAIN-SUFFIX,msftconnecttest.com
 DOMAIN-SUFFIX,msftncsi.com
+# openai的代理网站
+DOMAIN-SUFFIX,aiproxy.io
