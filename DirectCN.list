@@ -1,2 +1,4 @@
 DOMAIN-KEYWORD,wise.com
 DOMAIN-KEYWORD,frp-add.top
+# aiproxy的vip专线，可以直连
+DOMAIN-KEYWORD,apivip.aiproxy.io
