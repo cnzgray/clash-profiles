@@ -60,3 +60,6 @@ dns:
 proxies: ~
 proxy-groups: ~
 rules: ~
+
+# statsh config item
+subscribe-url: {{ request.url }}
