@@ -1,7 +1,8 @@
 # 
-DOMAIN-KEYWORD,t.audiences.me
-DOMAIN-KEYWORD,tracker.cinefiles.info
+DOMAIN-SUFFIX,t.audiences.me
+DOMAIN-SUFFIX,tracker.cinefiles.info
 # 
-DOMAIN-KEYWORD,t.hddolby.com
+DOMAIN-SUFFIX,t.hddolby.com
 # 
-DOMAIN-KEYWORD,tracker.m-team.io
+DOMAIN-SUFFIX,m-team.io
+DOMAIN-SUFFIX,m-team.cc
