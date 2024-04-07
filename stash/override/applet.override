@@ -1,7 +1,6 @@
 name: "Wechat Applet ADBlock"
 desc: "微信小程序去除广告[墨鱼版]"
 author: "ddgksf2013"
-icon: "https://raw.githubusercontent.com/deezertidal/private/main/icons/xmlyad.png"
 category: "ADBlock"
 # 参考： https://raw.githubusercontent.com/cnzgray/clash-profiles/main/stash/override/applet.override
 
