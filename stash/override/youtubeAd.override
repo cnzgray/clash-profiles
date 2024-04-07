@@ -1,0 +1,49 @@
+name: "Youtube Block AD"
+desc: "用于视频、瀑布流、搜索、播放页、短视频及贴片广告、视频自动PIP、后台播放、自动翻译，不适用允许 UDP 转发的节点及 Premium"
+author: "@ddgksf2021 @DivineEngine, @app2smile, @Maasea, @VirgilClyne"
+icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/YouTube.png"
+category: "ADBlock"
+#参考 https://raw.githubusercontent.com/ddgksf2013/Rewrite/master/AdBlock/YoutubeAds.conf
+#原始仓库：  https://github.com/DivineEngine
+#原始仓库：  https://github.com/Maasea
+#原始仓库：  https://github.com/app2smile
+#重写地址：  https://github.com/ddgksf2013/Rewrite/raw/master/AdBlock/YoutubeAds.conf
+
+http:
+  mitm:
+    - "-redirector*.googlevideo.com"
+    - "*.googlevideo.com"
+    - "www.youtube.com"
+    - "s.youtube.com"
+    - "youtubei.googleapis.com"
+
+  script:
+    # ======= 视频PIP|后台播放|瀑布流|搜索页|播放页|短视频|贴片广告  ======= #
+    - match: ^https?:\/\/youtubei\.googleapis\.com\/youtubei\/v1\/(browse|next|player|reel\/reel_watch_sequence)
+      name: youtube.request
+      type: request
+      require-body: true
+      binary-mode: true
+      timeout: 10
+    - match: ^https?:\/\/youtubei\.googleapis\.com\/youtubei\/v1\/(browse|next|player|search|reel\/reel_watch_sequence|guide|account\/get_setting)
+      name: youtube.response
+      type: response
+      require-body: true
+      binary-mode: true
+      timeout: 10
+
+  rewrite:
+    # ======= 视频广告请求 ======= #
+    - (^https?:\/\/[\w-]+\.googlevideo\.com\/(?!dclk_video_ads).+?)&ctier=L(&.+?),ctier,(.+) $1$2$3 302
+    - ^https?:\/\/[\w-]+\.googlevideo\.com\/(?!(dclk_video_ads|videoplayback\?)).+&oad - reject-200
+    # ======= 通用广告请求 ======= #
+    - ^https?:\/\/(www|s)\.youtube\.com\/api\/stats\/ads - reject-200
+    - ^https?:\/\/(www|s)\.youtube\.com\/(pagead|ptracking) - reject-200
+    - ^https?:\/\/s\.youtube\.com\/api\/stats\/qoe\?adcontext - reject-200
+script-providers:
+  youtube.request:
+    url: https://raw.githubusercontent.com/Maasea/sgmodule/master/Script/Youtube/dist/youtube.request.beta.js
+    interval: 86400
+  youtube.response:
+    url: https://raw.githubusercontent.com/Maasea/sgmodule/master/Script/Youtube/dist/youtube.response.beta.js
+    interval: 86400

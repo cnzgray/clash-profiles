@@ -3,6 +3,7 @@ desc: "喜马拉雅: 去广告"
 author: "ddgksf2013"
 icon: "https://raw.githubusercontent.com/deezertidal/private/main/icons/xmlyad.png"
 category: "ADBlock"
+# 参考： https://github.com/ddgksf2013/Rewrite/blob/master/AdBlock/Ximalaya.conf
 
 http:
   mitm:
