@@ -292,7 +292,6 @@ proxy-groups:
     lazy: true
     include-all: true
 
-
   - name: 📢 谷歌FCM
     type: select
     lazy: true
@@ -434,7 +433,6 @@ proxy-groups:
       - 🇵🇭 菲律宾节点
       - 🚀 手动切换
 
-
   - name: 🇭🇰 香港节点
     type: url-test
     lazy: true
@@ -523,6 +521,7 @@ proxy-groups:
     filter: NF|奈飞|解锁|Netflix|NETFLIX|Media
 
 rules:
+  - SCRIPT,quic,REJECT,no-track
   - RULE-SET,LocalAreaNetwork,🎯 全球直连
   - RULE-SET,UnBan,🎯 全球直连
   - RULE-SET,BanAD,🛑 广告拦截
@@ -826,6 +825,11 @@ rule-providers:
     format: text
     url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Download.list
     interval: 86400
+
+script:
+  shortcuts:
+    # 4483 与 9305 为 BiliBili 的 QUIC CDN
+    quic: network == 'udp' and (dst_port == 443 or dst_port == 4483 or dst_port == 9305)
 
 dns:
   default-nameserver:
