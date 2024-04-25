@@ -1,4 +1,5 @@
-# Stash专用
+##############   注意:该配置文件为meta内核专用,不适合其他clash内核   #################
+
 ########################################################################分隔符
 pq: &pq {type: http, interval: 86400, health-check: {enable: true, url: https://www.gstatic.com/generate_204, interval: 600, format: yaml}}    #####   订阅锚点   #####
 # url 里填写自己的订阅,订阅名称不能重复
@@ -15,15 +16,10 @@ pp: &pp {use: [ sub1 ]}   #####   机场合集   #####
 ########################################################################分隔符
 
 ######### 锚点 begin #########
-wifi-direct: &wifi-direct
-  # WIFI1: 🎯 全球直连
-  # WIFI2: 🎯 全球直连
-sp: &sp {<<: *wifi-direct, cellular: 🚀 节点选择, default: 🚀 节点选择}
-
 pc: &pc {type: http, behavior: classical, interval: 86400, format: yaml}    #####   rule-providers锚点   #####
 pd: &pd {type: http, behavior: domain, interval: 86400, format: yaml}    #####   rule-providers锚点   #####
 pi: &pi {type: http, behavior: ipcidr, interval: 86400, format: yaml}    #####   rule-providers锚点   #####
-o1: &o1 {type: select, proxies: [🚀 节点选择, ♻️ 自动选择, 🇭🇰 香港节点, 🇨🇳 台湾节点, 🇸🇬 狮城节点, 🇯🇵 日本节点, 🇰🇷 韩国节点, 🇺🇸 美国节点, 🎯 全球直连], <<: *pp, ssid-policy: {<<: *sp}}    ######  策略组描点   ######
+o1: &o1 {type: select, proxies: [🚀 节点选择, ♻️ 自动选择, 🇭🇰 香港节点, 🇨🇳 台湾节点, 🇸🇬 狮城节点, 🇯🇵 日本节点, 🇰🇷 韩国节点, 🇺🇸 美国节点, 🎯 全球直连], <<: *pp}    ######  策略组描点   ######
 o2: &o2 {type: select, proxies: [🎯 全球直连, 🚀 节点选择, ♻️ 自动选择, 🇭🇰 香港节点, 🇨🇳 台湾节点, 🇸🇬 狮城节点, 🇯🇵 日本节点, 🇰🇷 韩国节点, 🇺🇸 美国节点]}    ######  策略组描点   ######
 ot: &ot {type: url-test, interval: 600, tolerance: 100, lazy: true, url: https://www.gstatic.com/generate_204, <<: *pp} #####   策略组描点   #####
 ######### 锚点 end #########
@@ -61,7 +57,6 @@ proxy-groups:
 
 rules:
   - IN-TYPE,INNER,🎯 全球直连
-  - SCRIPT,quic,REJECT
   - RULE-SET,LocalAreaNetwork,🎯 全球直连
   - RULE-SET,Unban,🎯 全球直连
   - RULE-SET,DirectPT,🎯 全球直连
@@ -217,19 +212,194 @@ rule-providers:
     url: "https://raw.githubusercontent.com/cnzgray/clash-profiles/master/CustomGFWlist.list"
     format: text
 
-script:
-  shortcuts:
-    # 4483 与 9305 为 BiliBili 的 QUIC CDN
-    quic: network == 'udp' and (dst_port == 443 or dst_port == 4483 or dst_port == 9305)
+######################################################################
+ipv6: false
+allow-lan: true
+mixed-port: 7893
+redir-port: 7892
+tproxy-port: 7895
+port: 7890
+socks-port: 7891
+mode: rule
+log-level: info
+unified-delay: false
+tcp-concurrent: true
+external-controller: 0.0.0.0:9090
+secret: '123456'
+bind-address: "*"
+authentication:
+  - Clash:zlmsaLgG
+
+find-process-mode: strict
+global-client-fingerprint: chrome
+global-ua: clash-verge/v1.5.10
+
+profile:
+  store-selected: true
+  store-fake-ip: true
+
+tun:
+  enable: true
+  stack: mixed
+  dns-hijack:
+    - "any:53"
+  auto-route: true
+  auto-detect-interface: true
+
+sniffer:
+  enable: true
+  sniff:
+    HTTP:
+      ports: [80, 8080-8880]
+      override-destination: true
+    TLS:
+      ports: [443, 8443]
+    QUIC:
+      ports: [443, 8443]
+  force-dns-mapping: true
+  parse-pure-ip: true
+  force-domain:
+  - "+.netflix.com"
+  - "+.nflxvideo.net"
+  - "+.amazonaws.com"
+  - "+.media.dssott.com"
+  skip-domain:
+  - "+.apple.com"
+  - "Mijia Cloud"
+  - "dlg.io.mi.com"
+  - "+.rc.sunlogin.net"
+  - "+.oray.com"
+  - "+.zshare.site"
+
 
 dns:
+  enable: true
+  ipv6: false     ###关闭IPV6 dns解析
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  listen: 0.0.0.0:7874
+  nameserver: 
+    - 119.29.29.29
+    - 223.5.5.5
   default-nameserver:
-    - 114.114.115.115
-    - 119.28.28.28
-    - 223.6.6.6
-    - system
-  nameserver:
+    - 223.5.5.5
+  proxy-server-nameserver:
     - https://dns.alidns.com/dns-query
-    - https://doh.pub/dns-query
-log-level: warning
-mode: rule
+    - https://dns.pub/dns-query
+  #nameserver-policy: 
+  #  'rule-set:Bahamut':
+  #    - 'https://dns.google/dns-query#📽️ 巴哈姆特'
+  #    - 'https://dns.cloudflare.com/dns-query#📽️ 巴哈姆特'
+  #  'rule-set:Geolocation-!cn':
+  #    - 'https://dns.google/dns-query#🚀 节点选择'
+  #    - 'https://dns.cloudflare.com/dns-query#🚀 节点选择'
+
+  fake-ip-filter:
+    - "*.lan"
+    - "*.localdomain"
+    - "*.example"
+    - "*.invalid"
+    - "*.localhost"
+    - "*.test"
+    - "*.local"
+    - "*.home.arpa"
+    - time.*.com
+    - time.*.gov
+    - time.*.edu.cn
+    - time.*.apple.com
+    - time-ios.apple.com
+    - time1.*.com
+    - time2.*.com
+    - time3.*.com
+    - time4.*.com
+    - time5.*.com
+    - time6.*.com
+    - time7.*.com
+    - ntp.*.com
+    - ntp1.*.com
+    - ntp2.*.com
+    - ntp3.*.com
+    - ntp4.*.com
+    - ntp5.*.com
+    - ntp6.*.com
+    - ntp7.*.com
+    - "*.time.edu.cn"
+    - "*.ntp.org.cn"
+    - "+.pool.ntp.org"
+    - time1.cloud.tencent.com
+    - music.163.com
+    - "*.music.163.com"
+    - "*.126.net"
+    - musicapi.taihe.com
+    - music.taihe.com
+    - songsearch.kugou.com
+    - trackercdn.kugou.com
+    - "*.kuwo.cn"
+    - api-jooxtt.sanook.com
+    - api.joox.com
+    - joox.com
+    - y.qq.com
+    - "*.y.qq.com"
+    - streamoc.music.tc.qq.com
+    - mobileoc.music.tc.qq.com
+    - isure.stream.qqmusic.qq.com
+    - dl.stream.qqmusic.qq.com
+    - aqqmusic.tc.qq.com
+    - amobile.music.tc.qq.com
+    - "*.xiami.com"
+    - "*.music.migu.cn"
+    - music.migu.cn
+    - "+.msftconnecttest.com"
+    - "+.msftncsi.com"
+    - localhost.ptlogin2.qq.com
+    - localhost.sec.qq.com
+    - "+.qq.com"
+    - "+.tencent.com"
+    - "+.srv.nintendo.net"
+    - "*.n.n.srv.nintendo.net"
+    - "+.stun.playstation.net"
+    - xbox.*.*.microsoft.com
+    - "*.*.xboxlive.com"
+    - xbox.*.microsoft.com
+    - xnotify.xboxlive.com
+    - "+.battlenet.com.cn"
+    - "+.wotgame.cn"
+    - "+.wggames.cn"
+    - "+.wowsgame.cn"
+    - "+.wargaming.net"
+    - proxy.golang.org
+    - stun.*.*
+    - stun.*.*.*
+    - "+.stun.*.*"
+    - "+.stun.*.*.*"
+    - "+.stun.*.*.*.*"
+    - "+.stun.*.*.*.*.*"
+    - heartbeat.belkin.com
+    - "*.linksys.com"
+    - "*.linksyssmartwifi.com"
+    - "*.router.asus.com"
+    - mesu.apple.com
+    - swscan.apple.com
+    - swquery.apple.com
+    - swdownload.apple.com
+    - swcdn.apple.com
+    - swdist.apple.com
+    - lens.l.google.com
+    - stun.l.google.com
+    - na.b.g-tun.com
+    - "+.nflxvideo.net"
+    - "*.square-enix.com"
+    - "*.finalfantasyxiv.com"
+    - "*.ffxiv.com"
+    - "*.ff14.sdo.com"
+    - ff.dorado.sdo.com
+    - "*.mcdn.bilivideo.cn"
+    - "+.media.dssott.com"
+    - shark007.net
+    - Mijia Cloud
+    - "+.cmbchina.com"
+    - "+.cmbimg.com"
+    - local.adguard.org
+    - "+.sandai.net"
+    - "+.n0808.com"
+    - "+.zshare.site"

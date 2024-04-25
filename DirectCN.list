@@ -1,6 +1,9 @@
-DOMAIN-KEYWORD,wise.com
-DOMAIN-KEYWORD,frp-add.top
+DOMAIN-SUFFIX,wise.com
+DOMAIN-SUFFIX,frp-add.top
 # aiproxy的vip专线，可以直连
-DOMAIN-KEYWORD,apivip.aiproxy.io
+DOMAIN-SUFFIX,apivip.aiproxy.io
 # todesk
-DOMAIN-KEYWORD,todesk.com
+DOMAIN-SUFFIX,todesk.com
+# 向日葵
+DOMAIN-SUFFIX,oray.net
+DOMAIN-SUFFIX,oray.com
