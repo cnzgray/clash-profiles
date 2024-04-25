@@ -56,16 +56,17 @@ proxy-groups:
   - {name: 🇺🇸 美国节点, <<: *ot, filter: "(?i)美|us|unitedstates|united states"}
 
 rules:
-  - IN-TYPE,INNER,🎯 全球直连
+  # - IN-TYPE,INNER,🎯 全球直连
   - RULE-SET,LocalAreaNetwork,🎯 全球直连
   - RULE-SET,Unban,🎯 全球直连
   - RULE-SET,DirectPT,🎯 全球直连
   - RULE-SET,DirectCN,🎯 全球直连
-  - RULE-SET,BanEasyListChina,🍃 广告拦截
+  - RULE-SET,SteamCN,🎯 全球直连
+  # - RULE-SET,BanEasyListChina,🍃 广告拦截
   - RULE-SET,BanAD,🍃 广告拦截
   - RULE-SET,MyBanAD,🍃 广告拦截
-  - RULE-SET,BanEasyList,🍃 广告拦截
-  - RULE-SET,BanEasyPrivacy,🍃 广告拦截
+  # - RULE-SET,BanEasyList,🍃 广告拦截
+  # - RULE-SET,BanEasyPrivacy,🍃 广告拦截
   - RULE-SET,Telegram,📲 电报信息
   - RULE-SET,Twitter,📱 Twitter
   - RULE-SET,OpenAi,💬 OpenAi
@@ -211,6 +212,9 @@ rule-providers:
     <<: *pc
     url: "https://raw.githubusercontent.com/cnzgray/clash-profiles/master/CustomGFWlist.list"
     format: text
+  SteamCN:
+    <<: *pc
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/SteamCN.list"
 
 ######################################################################
 ipv6: false
