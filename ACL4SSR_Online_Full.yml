@@ -40,7 +40,7 @@ proxy-groups:
   - {name: 🌏 国内媒体, type: select, proxies: [🎯 全球直连, 🇨🇳 台湾节点, 🇭🇰 香港节点, 🚀 节点选择]}
   - {name: ☣️ Copilot, <<: *o1}
   - {name: 🍎 苹果服务, <<: *o2}
-  - {name: Ⓜ️ 微软服务, <<: *o2}
+  - {name: Ⓜ️ 微软服务, <<: *o1}
   - {name: 🎮 游戏平台, <<: *o1}
   - {name: 📥 PT下载, <<: [*o2, *pp]}
   - {name: 🐱 Github, <<: *o1}
