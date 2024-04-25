@@ -67,6 +67,8 @@ rules:
   - RULE-SET,MyBanAD,🍃 广告拦截
   # - RULE-SET,BanEasyList,🍃 广告拦截
   # - RULE-SET,BanEasyPrivacy,🍃 广告拦截
+  - RULE-SET,PrivateTracker,📥 PT下载
+  - RULE-SET,MyPrivateTracker,📥 PT下载
   - RULE-SET,Telegram,📲 电报信息
   - RULE-SET,Twitter,📱 Twitter
   - RULE-SET,OpenAi,💬 OpenAi
@@ -82,23 +84,22 @@ rules:
   - RULE-SET,Microsoft,Ⓜ️ 微软服务
   - RULE-SET,Apple,🍎 苹果服务
   - RULE-SET,Github,🐱 Github
-  - RULE-SET,PrivateTracker,📥 PT下载
-  - RULE-SET,MyPrivateTracker,📥 PT下载
-  - RULE-SET,Geosite_cn,🎯 全球直连
-  - RULE-SET,Geosite_private,🎯 全球直连
+  - RULE-SET,CustomGFWlist,🚀 节点选择
+  - RULE-SET,ProxyGFWlist,🚀 节点选择
+    # - RULE-SET,Geolocation-!cn,🚀 节点选择
   - RULE-SET,ChinaDomain,🎯 全球直连
-  - RULE-SET,Geolocation-!cn,🚀 节点选择
-  - RULE-SET,MyGFWlist,🚀 节点选择
-  - RULE-SET,Geoip_cn,🎯 全球直连,no-resolve
-  - RULE-SET,Geoip_private,🎯 全球直连,no-resolve
+  # - RULE-SET,Geosite_cn,🎯 全球直连
+  # - RULE-SET,Geosite_private,🎯 全球直连
   - RULE-SET,ChinaCompanyIp,🎯 全球直连,no-resolve
   - RULE-SET,ChinaIp,🎯 全球直连,no-resolve
+  # - RULE-SET,Geoip_cn,🎯 全球直连,no-resolve
+  # - RULE-SET,Geoip_private,🎯 全球直连,no-resolve
   - MATCH,🐟 漏网之鱼
 
 rule-providers:
-  Geolocation-!cn:
-    <<: *pd
-    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/geolocation-!cn.yaml"  
+  # Geolocation-!cn:
+  #   <<: *pd
+  #   url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/geolocation-!cn.yaml"  
   LocalAreaNetwork:
     <<: *pc
     url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/LocalAreaNetwork.yaml"
@@ -113,9 +114,9 @@ rule-providers:
     <<: *pc
     url: "https://raw.githubusercontent.com/cnzgray/clash-profiles/master/DirectCN.list"
     format: text
-  BanEasyListChina:
-    <<: *pc
-    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/BanEasyListChina.yaml"
+  # BanEasyListChina:
+  #   <<: *pc
+  #   url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/BanEasyListChina.yaml"
   MyBanAD:
     <<: *pc
     url: "https://raw.githubusercontent.com/cnzgray/clash-profiles/master/BanAD.list"
@@ -123,12 +124,12 @@ rule-providers:
   BanAD:
     <<: *pc
     url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/BanAD.yaml"
-  BanEasyList:
-    <<: *pc
-    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/BanEasyList.yaml"
-  BanEasyPrivacy:
-    <<: *pc
-    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/BanEasyPrivacy.yaml"
+  # BanEasyList:
+  #   <<: *pc
+  #   url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/BanEasyList.yaml"
+  # BanEasyPrivacy:
+  #   <<: *pc
+  #   url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/BanEasyPrivacy.yaml"
   Telegram:
     <<: *pc
     url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Telegram.yaml"
@@ -187,12 +188,12 @@ rule-providers:
     <<: *pc
     url: "https://raw.githubusercontent.com/cnzgray/clash-profiles/master/ProxyPT.list"
     format: text
-  Geosite_cn:
-    <<: *pd
-    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/cn.yaml"
-  Geosite_private:
-    <<: *pd
-    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/private.yaml"
+  # Geosite_cn:
+  #   <<: *pd
+  #   url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/cn.yaml"
+  # Geosite_private:
+  #   <<: *pd
+  #   url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/private.yaml"
   ChinaDomain:
     <<: *pc
     url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/ChinaDomain.yaml"
@@ -208,7 +209,7 @@ rule-providers:
   ChinaIp:
     <<: *pi
     url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/ChinaIp.yaml"
-  MyGFWlist:
+  CustomGFWlist:
     <<: *pc
     url: "https://raw.githubusercontent.com/cnzgray/clash-profiles/master/CustomGFWlist.list"
     format: text
@@ -216,6 +217,11 @@ rule-providers:
     <<: *pc
     url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/SteamCN.list"
     format: text
+  ProxyGFWlist:
+    <<: *pc
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ProxyGFWlist.list"
+    format: text
+    
 
 ######################################################################
 ipv6: false
@@ -239,6 +245,11 @@ find-process-mode: strict
 global-client-fingerprint: chrome
 global-ua: clash-verge/v1.5.10
 
+geodata-mode: true
+geox-url:
+  geoip: "https://mirror.ghproxy.com/https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geoip-lite.dat"
+  geosite: "https://mirror.ghproxy.com/https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geosite.dat"
+  mmdb: "https://mirror.ghproxy.com/https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/country-lite.mmdb"
 
 profile:
   store-selected: true
@@ -292,7 +303,10 @@ dns:
   proxy-server-nameserver:
     - https://dns.alidns.com/dns-query
     - https://dns.pub/dns-query
-  #nameserver-policy: 
+  nameserver-policy: 
+    'rule-set:PrivateTracker,MyPrivateTracker':
+      - 'https://dns.google/dns-query#📥 PT下载'
+      - 'https://dns.cloudflare.com/dns-query#📥 PT下载'
   #  'rule-set:Bahamut':
   #    - 'https://dns.google/dns-query#📽️ 巴哈姆特'
   #    - 'https://dns.cloudflare.com/dns-query#📽️ 巴哈姆特'
