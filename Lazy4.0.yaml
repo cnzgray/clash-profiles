@@ -105,18 +105,18 @@ rule-providers:
     <<: *pc
     url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/UnBan.yaml"
   DirectPT:
-    <<: *pd
+    <<: *pc
     url: "https://raw.githubusercontent.com/cnzgray/clash-profiles/master/DirectPT.list"
     format: text
   DirectCN:
-    <<: *pd
+    <<: *pc
     url: "https://raw.githubusercontent.com/cnzgray/clash-profiles/master/DirectCN.list"
     format: text
   BanEasyListChina:
     <<: *pc
     url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/BanEasyListChina.yaml"
   MyBanAD:
-    <<: *pd
+    <<: *pc
     url: "https://raw.githubusercontent.com/cnzgray/clash-profiles/master/BanAD.list"
     format: text
   BanAD:
@@ -183,7 +183,7 @@ rule-providers:
     <<: *pc
     url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/PrivateTracker.yaml"
   MyPrivateTracker:
-    <<: *pd
+    <<: *pc
     url: "https://raw.githubusercontent.com/cnzgray/clash-profiles/master/ProxyPT.list"
     format: text
   Geosite_cn:
@@ -208,7 +208,7 @@ rule-providers:
     <<: *pi
     url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/ChinaIp.yaml"
   MyGFWlist:
-    <<: *pd
+    <<: *pc
     url: "https://raw.githubusercontent.com/cnzgray/clash-profiles/master/CustomGFWlist.list"
     format: text
 
