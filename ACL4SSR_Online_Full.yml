@@ -62,11 +62,8 @@ rules:
   - RULE-SET,DirectPT,🎯 全球直连
   - RULE-SET,DirectCN,🎯 全球直连
   - RULE-SET,SteamCN,🎯 全球直连
-  # - RULE-SET,BanEasyListChina,🍃 广告拦截
   - RULE-SET,BanAD,🍃 广告拦截
   - RULE-SET,MyBanAD,🍃 广告拦截
-  # - RULE-SET,BanEasyList,🍃 广告拦截
-  # - RULE-SET,BanEasyPrivacy,🍃 广告拦截
   - RULE-SET,PrivateTracker,📥 PT下载
   - RULE-SET,MyPrivateTracker,📥 PT下载
   - RULE-SET,Telegram,📲 电报信息
@@ -86,28 +83,12 @@ rules:
   - RULE-SET,Github,🐱 Github
   - RULE-SET,CustomGFWlist,🚀 节点选择
   - RULE-SET,ProxyGFWlist,🚀 节点选择
-    # - RULE-SET,Geolocation-!cn,🚀 节点选择
   - RULE-SET,ChinaDomain,🎯 全球直连
-  # - RULE-SET,Geosite_cn,🎯 全球直连
-  # - RULE-SET,Geosite_private,🎯 全球直连
   - RULE-SET,ChinaCompanyIp,🎯 全球直连,no-resolve
   - RULE-SET,ChinaIp,🎯 全球直连,no-resolve
-  # - RULE-SET,Geoip_cn,🎯 全球直连,no-resolve
-  # - RULE-SET,Geoip_private,🎯 全球直连,no-resolve
   - MATCH,🐟 漏网之鱼
 
 rule-providers:
-  CustomGFWlist:
-    <<: *pc
-    url: "https://raw.githubusercontent.com/cnzgray/clash-profiles/master/CustomGFWlist.list"
-    format: text
-  ProxyGFWlist:
-    <<: *pc
-    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ProxyGFWlist.list"
-    format: text
-  # Geolocation-!cn:
-  #   <<: *pd
-  #   url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/geolocation-!cn.yaml"  
   LocalAreaNetwork:
     <<: *pc
     url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/LocalAreaNetwork.yaml"
@@ -122,9 +103,6 @@ rule-providers:
     <<: *pc
     url: "https://raw.githubusercontent.com/cnzgray/clash-profiles/master/DirectCN.list"
     format: text
-  # BanEasyListChina:
-  #   <<: *pc
-  #   url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/BanEasyListChina.yaml"
   MyBanAD:
     <<: *pc
     url: "https://raw.githubusercontent.com/cnzgray/clash-profiles/master/BanAD.list"
@@ -132,12 +110,6 @@ rule-providers:
   BanAD:
     <<: *pc
     url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/BanAD.yaml"
-  # BanEasyList:
-  #   <<: *pc
-  #   url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/BanEasyList.yaml"
-  # BanEasyPrivacy:
-  #   <<: *pc
-  #   url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/BanEasyPrivacy.yaml"
   Telegram:
     <<: *pc
     url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Telegram.yaml"
@@ -165,10 +137,6 @@ rule-providers:
   Category-games:
     <<: *pd
     url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/category-games.yaml"
-  SteamCN:
-    <<: *pc
-    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/SteamCN.list"
-    format: text
   Bilibili:
     <<: *pc
     url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Bilibili.yaml"
@@ -203,25 +171,25 @@ rule-providers:
   ChinaDomain:
     <<: *pc
     url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/ChinaDomain.yaml"
-  # Geosite_cn:
-  #   <<: *pd
-  #   url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/cn.yaml"
-  # Geosite_private:
-  #   <<: *pd
-  #   url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/private.yaml"
   ChinaCompanyIp:
     <<: *pi
     url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/ChinaCompanyIp.yaml"
   ChinaIp:
     <<: *pi
     url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/ChinaIp.yaml"
-  # Geoip_cn:
-  #   <<: *pi
-  #   url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/cn.yaml"
-  # Geoip_private:
-  #   <<: *pi
-  #   url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/private.yaml"
-
+  CustomGFWlist:
+    <<: *pc
+    url: "https://raw.githubusercontent.com/cnzgray/clash-profiles/master/CustomGFWlist.list"
+    format: text
+  SteamCN:
+    <<: *pc
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/SteamCN.list"
+    format: text
+  ProxyGFWlist:
+    <<: *pc
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ProxyGFWlist.list"
+    format: text
+    
 
 ######################################################################
 ipv6: false
