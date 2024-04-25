@@ -214,7 +214,8 @@ rule-providers:
     format: text
   SteamCN:
     <<: *pc
-    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/SteamCN.list"
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/SteamCN.list"
+    format: text
 
 ######################################################################
 ipv6: false
