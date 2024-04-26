@@ -86,6 +86,7 @@ rules:
   - RULE-SET,ChinaDomain,🎯 全球直连
   - RULE-SET,ChinaCompanyIp,🎯 全球直连,no-resolve
   - RULE-SET,ChinaIp,🎯 全球直连,no-resolve
+  - IN-TYPE,INNER,DIRECT # 确保内部流量在无法匹配时走直连
   - MATCH,🐟 漏网之鱼
 
 rule-providers:
