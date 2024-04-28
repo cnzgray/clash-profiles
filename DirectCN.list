@@ -9,3 +9,8 @@ DOMAIN-SUFFIX,oray.net
 DOMAIN-SUFFIX,oray.com
 # xbox中国服务器
 DOMAIN-SUFFIX,xboxlive.cn
+# natfrp
+DOMAIN-SUFFIX,natfrp.com
+DOMAIN-SUFFIX,natfrp.cloud
+DOMAIN-SUFFIX,frp-fox.top
+DOMAIN-SUFFIX,frp-gap.top
