@@ -17,3 +17,5 @@ DOMAIN-SUFFIX,frp-gap.top
 # 
 DOMAIN-SUFFIX,zshare.site
 DOMAIN-SUFFIX,csqqq.top
+# frpc只允许中国ip连接
+DOMAIN-SUFFIX,frp-few.top
