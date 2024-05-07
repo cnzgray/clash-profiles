@@ -44,6 +44,7 @@ proxy-groups:
   - {name: 🎮 游戏平台, <<: *o1}
   - {name: 📥 PT下载, <<: [*o2, *pp]}
   - {name: 🐱 Github, <<: *o1}
+  - {name: 🌏 BanJP, type: select, proxies: [🚀 节点选择, ♻️ 自动选择, 🇭🇰 香港节点, 🇨🇳 台湾节点, 🇸🇬 狮城节点, 🇰🇷 韩国节点, 🇺🇸 美国节点]}
   - {name: 🎯 全球直连, type: select, proxies: [DIRECT,REJECT]}
   - {name: 🍃 广告拦截, type: select, proxies: [REJECT,DIRECT]}
   - {name: 🐟 漏网之鱼, <<: *o1}
@@ -56,7 +57,8 @@ proxy-groups:
   - {name: 🇺🇸 美国节点, <<: *ot, filter: "(?i)美|us|unitedstates|united states"}
 
 rules:
-  # - IN-TYPE,INNER,🎯 全球直连
+  # 来自192.168.1.89和192.168.1.88地址的非SOCKS协议直连
+  #- AND,((OR,((SRC-IP-CIDR,192.168.1.88/32),(SRC-IP-CIDR,192.168.1.89/32))),(NOT,((IN-TYPE,SOCKS)))),DIRECT
   - RULE-SET,LocalAreaNetwork,🎯 全球直连
   - RULE-SET,Unban,🎯 全球直连
   - RULE-SET,DirectPT,🎯 全球直连
@@ -81,6 +83,7 @@ rules:
   - RULE-SET,Microsoft,Ⓜ️ 微软服务
   - RULE-SET,Apple,🍎 苹果服务
   - RULE-SET,Github,🐱 Github
+  - RULE-SET,BanJP,🌏 BanJP
   - RULE-SET,CustomGFWlist,🚀 节点选择
   - RULE-SET,ProxyGFWlist,🚀 节点选择
   - RULE-SET,ChinaDomain,🎯 全球直连
@@ -190,7 +193,10 @@ rule-providers:
     <<: *pc
     url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ProxyGFWlist.list"
     format: text
-    
+  BanJP:
+    <<: *pc
+    url: "https://raw.githubusercontent.com/cnzgray/clash-profiles/master/BanIP_JP.list"
+    format: text
 
 ######################################################################
 ipv6: false
