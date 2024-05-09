@@ -282,6 +282,9 @@ dns:
     'rule-set:PrivateTracker,MyPrivateTracker':
       - 'https://dns.google/dns-query#📥 PT下载'
       - 'https://dns.cloudflare.com/dns-query#📥 PT下载'
+    'rule-set:BanJP':
+      - 'https://dns.google/dns-query#🌏 BanJP'
+      - 'https://dns.cloudflare.com/dns-query#🌏 BanJP'
   #  'rule-set:Bahamut':
   #    - 'https://dns.google/dns-query#📽️ 巴哈姆特'
   #    - 'https://dns.cloudflare.com/dns-query#📽️ 巴哈姆特'
