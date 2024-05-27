@@ -48,6 +48,7 @@ proxy-groups:
   - {name: 🎮 游戏平台, <<: *o1}
   - {name: 📥 PT下载, <<: [*o2, *pp]}
   - {name: 🐱 Github, <<: *o1}
+  - {name: 🌏 BanJP, type: select, proxies: [🚀 节点选择, ♻️ 自动选择, 🇭🇰 香港节点, 🇨🇳 台湾节点, 🇸🇬 狮城节点, 🇰🇷 韩国节点, 🇺🇸 美国节点]}
   - {name: 🎯 全球直连, type: select, proxies: [DIRECT,REJECT]}
   - {name: 🍃 广告拦截, type: select, proxies: [REJECT,DIRECT]}
   - {name: 🐟 漏网之鱼, <<: *o1}
@@ -60,17 +61,16 @@ proxy-groups:
   - {name: 🇺🇸 美国节点, <<: *ot, filter: "(?i)美|us|unitedstates|united states"}
 
 rules:
-  - IN-TYPE,INNER,🎯 全球直连
   - SCRIPT,quic,REJECT
   - RULE-SET,LocalAreaNetwork,🎯 全球直连
   - RULE-SET,Unban,🎯 全球直连
   - RULE-SET,DirectPT,🎯 全球直连
   - RULE-SET,DirectCN,🎯 全球直连
-  - RULE-SET,BanEasyListChina,🍃 广告拦截
+  - RULE-SET,SteamCN,🎯 全球直连
   - RULE-SET,BanAD,🍃 广告拦截
   - RULE-SET,MyBanAD,🍃 广告拦截
-  - RULE-SET,BanEasyList,🍃 广告拦截
-  - RULE-SET,BanEasyPrivacy,🍃 广告拦截
+  - RULE-SET,PrivateTracker,📥 PT下载
+  - RULE-SET,MyPrivateTracker,📥 PT下载
   - RULE-SET,Telegram,📲 电报信息
   - RULE-SET,Twitter,📱 Twitter
   - RULE-SET,OpenAi,💬 OpenAi
@@ -86,23 +86,16 @@ rules:
   - RULE-SET,Microsoft,Ⓜ️ 微软服务
   - RULE-SET,Apple,🍎 苹果服务
   - RULE-SET,Github,🐱 Github
-  - RULE-SET,PrivateTracker,📥 PT下载
-  - RULE-SET,MyPrivateTracker,📥 PT下载
-  - RULE-SET,Geosite_cn,🎯 全球直连
-  - RULE-SET,Geosite_private,🎯 全球直连
+  - RULE-SET,BanJP,🌏 BanJP
+  - RULE-SET,CustomGFWlist,🚀 节点选择
+  - RULE-SET,ProxyGFWlist,🚀 节点选择
   - RULE-SET,ChinaDomain,🎯 全球直连
-  - RULE-SET,Geolocation-!cn,🚀 节点选择
-  - RULE-SET,MyGFWlist,🚀 节点选择
-  - RULE-SET,Geoip_cn,🎯 全球直连,no-resolve
-  - RULE-SET,Geoip_private,🎯 全球直连,no-resolve
   - RULE-SET,ChinaCompanyIp,🎯 全球直连,no-resolve
   - RULE-SET,ChinaIp,🎯 全球直连,no-resolve
+  - IN-TYPE,INNER,DIRECT # 确保内部流量在无法匹配时走直连
   - MATCH,🐟 漏网之鱼
 
 rule-providers:
-  Geolocation-!cn:
-    <<: *pd
-    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/geolocation-!cn.yaml"  
   LocalAreaNetwork:
     <<: *pc
     url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/LocalAreaNetwork.yaml"
@@ -117,9 +110,6 @@ rule-providers:
     <<: *pc
     url: "https://raw.githubusercontent.com/cnzgray/clash-profiles/master/DirectCN.list"
     format: text
-  BanEasyListChina:
-    <<: *pc
-    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/BanEasyListChina.yaml"
   MyBanAD:
     <<: *pc
     url: "https://raw.githubusercontent.com/cnzgray/clash-profiles/master/BanAD.list"
@@ -127,12 +117,6 @@ rule-providers:
   BanAD:
     <<: *pc
     url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/BanAD.yaml"
-  BanEasyList:
-    <<: *pc
-    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/BanEasyList.yaml"
-  BanEasyPrivacy:
-    <<: *pc
-    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/BanEasyPrivacy.yaml"
   Telegram:
     <<: *pc
     url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Telegram.yaml"
@@ -191,30 +175,30 @@ rule-providers:
     <<: *pc
     url: "https://raw.githubusercontent.com/cnzgray/clash-profiles/master/ProxyPT.list"
     format: text
-  Geosite_cn:
-    <<: *pd
-    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/cn.yaml"
-  Geosite_private:
-    <<: *pd
-    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/private.yaml"
   ChinaDomain:
     <<: *pc
     url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/ChinaDomain.yaml"
-  Geoip_cn:
-    <<: *pi
-    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/cn.yaml"
-  Geoip_private:
-    <<: *pi
-    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/private.yaml"
   ChinaCompanyIp:
     <<: *pi
     url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/ChinaCompanyIp.yaml"
   ChinaIp:
     <<: *pi
     url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/ChinaIp.yaml"
-  MyGFWlist:
+  CustomGFWlist:
     <<: *pc
     url: "https://raw.githubusercontent.com/cnzgray/clash-profiles/master/CustomGFWlist.list"
+    format: text
+  SteamCN:
+    <<: *pc
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/SteamCN.list"
+    format: text
+  ProxyGFWlist:
+    <<: *pc
+    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ProxyGFWlist.list"
+    format: text
+  BanJP:
+    <<: *pc
+    url: "https://raw.githubusercontent.com/cnzgray/clash-profiles/master/BanIP_JP.list"
     format: text
 
 script:
@@ -231,5 +215,24 @@ dns:
   nameserver:
     - https://dns.alidns.com/dns-query
     - https://doh.pub/dns-query
+  nameserver-policy:
+    'rule-set:ChinaDomain':
+      - 'https://doh.pub/dns-query'
+      - 'https://dns.alidns.com/dns-query'
+    'rule-set:CustomGFWlist,ProxyGFWlist':
+      - 'https://dns.cloudflare.com/dns-query#🚀 节点选择'
+      - 'https://dns.google/dns-query#🚀 节点选择'
+    "geosite:cn,private":
+      - https://doh.pub/dns-query
+      - https://dns.alidns.com/dns-query
+    "geosite:geolocation-!cn":
+      - 'https://dns.cloudflare.com/dns-query#🚀 节点选择'
+      - 'https://dns.google/dns-query#🚀 节点选择'
+    'rule-set:PrivateTracker,MyPrivateTracker':
+      - 'https://dns.google/dns-query#📥 PT下载'  
+      - 'https://dns.cloudflare.com/dns-query#📥 PT下载'
+    'rule-set:BanJP':
+      - 'https://dns.google/dns-query#🌏 BanJP'
+      - 'https://dns.cloudflare.com/dns-query#🌏 BanJP'
 log-level: warning
 mode: rule
