@@ -215,24 +215,6 @@ dns:
   nameserver:
     - https://dns.alidns.com/dns-query
     - https://doh.pub/dns-query
-  nameserver-policy:
-    'rule-set:ChinaDomain':
-      - 'https://doh.pub/dns-query'
-      - 'https://dns.alidns.com/dns-query'
-    'rule-set:CustomGFWlist,ProxyGFWlist':
-      - 'https://dns.cloudflare.com/dns-query#🚀 节点选择'
-      - 'https://dns.google/dns-query#🚀 节点选择'
-    "geosite:cn,private":
-      - https://doh.pub/dns-query
-      - https://dns.alidns.com/dns-query
-    "geosite:geolocation-!cn":
-      - 'https://dns.cloudflare.com/dns-query#🚀 节点选择'
-      - 'https://dns.google/dns-query#🚀 节点选择'
-    'rule-set:PrivateTracker,MyPrivateTracker':
-      - 'https://dns.google/dns-query#📥 PT下载'  
-      - 'https://dns.cloudflare.com/dns-query#📥 PT下载'
-    'rule-set:BanJP':
-      - 'https://dns.google/dns-query#🌏 BanJP'
-      - 'https://dns.cloudflare.com/dns-query#🌏 BanJP'
+
 log-level: warning
 mode: rule

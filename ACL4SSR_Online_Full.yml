@@ -285,10 +285,10 @@ dns:
     'rule-set:CustomGFWlist,ProxyGFWlist':
       - 'https://dns.cloudflare.com/dns-query#🚀 节点选择'
       - 'https://dns.google/dns-query#🚀 节点选择'
-    "geosite:cn,private":
-      - https://doh.pub/dns-query
-      - https://dns.alidns.com/dns-query
-    "geosite:geolocation-!cn":
+    'geosite:cn,private':
+      - 'https://doh.pub/dns-query'
+      - 'https://dns.alidns.com/dns-query'
+    'geosite:geolocation-!cn':
       - 'https://dns.cloudflare.com/dns-query#🚀 节点选择'
       - 'https://dns.google/dns-query#🚀 节点选择'
     'rule-set:PrivateTracker,MyPrivateTracker':
