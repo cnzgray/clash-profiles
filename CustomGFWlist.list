@@ -11,3 +11,5 @@ DOMAIN-SUFFIX,lib.baomitu.com
 DOMAIN-SUFFIX,dl.macked.homes
 # 
 DOMAIN-SUFFIX,wiki.movie-pilot.org
+# frpc需要翻墙的节点
+DOMAIN-SUFFIX,frp-fly.top
