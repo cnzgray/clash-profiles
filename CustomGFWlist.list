@@ -14,5 +14,3 @@ DOMAIN-SUFFIX,wiki.movie-pilot.org
 DOMAIN-SUFFIX,movie-pilot.org
 # frpc需要翻墙的节点
 DOMAIN-SUFFIX,frp-fly.top
-# dl.google.com
-DOMAIN-SUFFIX,dl.google.com
