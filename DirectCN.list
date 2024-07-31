@@ -20,4 +20,7 @@ DOMAIN-SUFFIX,csqqq.top
 # frpc只允许中国ip连接
 DOMAIN-SUFFIX,frp-few.top
 #DOMAIN-SUFFIX,frp-fly.top
-
+# tailscale
+DOMAIN-SUFFIX,tailscale.com
+DOMAIN-SUFFIX,tailscale.io
+DOMAIN-REGEX,^derp.*\.tailscale\.com$
