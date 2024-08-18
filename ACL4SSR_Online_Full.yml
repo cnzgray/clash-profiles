@@ -71,6 +71,7 @@ rules:
   - RULE-SET,Telegram,📲 电报信息
   - RULE-SET,Twitter,📱 Twitter
   - RULE-SET,OpenAi,💬 OpenAi
+  - RULE-SET,MyAiCopilot,💬 OpenAi
   - RULE-SET,YouTube,🎬 油管视频
   - RULE-SET,Disney,🏰 Disney
   - RULE-SET,Netflix,🎥 奈飞视频
@@ -196,6 +197,10 @@ rule-providers:
   BanJP:
     <<: *pc
     url: "https://raw.githubusercontent.com/cnzgray/clash-profiles/master/BanIP_JP.list"
+    format: text
+  MyAiCopilot:
+    <<: *pc
+    url: "https://raw.githubusercontent.com/cnzgray/clash-profiles/master/AiCopilot.list"
     format: text
 
 ######################################################################
