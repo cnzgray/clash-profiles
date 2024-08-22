@@ -283,10 +283,25 @@ dns:
   proxy-server-nameserver:
     - https://dns.alidns.com/dns-query
     - https://dns.pub/dns-query
-  nameserver-policy: 
+  nameserver-policy:
     'rule-set:Unban,DirectPT,DirectCN,SteamCN,ChinaDomain':
       - 'https://doh.pub/dns-query'
       - 'https://dns.alidns.com/dns-query'
+    'rule-set:PrivateTracker,MyPrivateTracker':
+      - 'https://dns.google/dns-query#📥 PT下载'  
+      - 'https://dns.cloudflare.com/dns-query#📥 PT下载'
+    'rule-set:BanJP':
+      - 'https://dns.google/dns-query#🌏 BanJP'
+      - 'https://dns.cloudflare.com/dns-query#🌏 BanJP'
+    'rule-set:Copilot':
+      - 'https://dns.google/dns-query#☣️ Copilot'
+      - 'https://dns.cloudflare.com/dns-query#☣️ Copilot'
+    'rule-set:OpenAi':
+      - 'https://dns.google/dns-query#💬 OpenAi'
+      - 'https://dns.cloudflare.com/dns-query#💬 OpenAi'
+    'rule-set:Github':
+      - 'https://dns.google/dns-query#🐱 Github'
+      - 'https://dns.cloudflare.com/dns-query#🐱 Github'
     'rule-set:CustomGFWlist,ProxyGFWlist':
       - 'https://dns.cloudflare.com/dns-query#🚀 节点选择'
       - 'https://dns.google/dns-query#🚀 节点选择'
@@ -296,12 +311,7 @@ dns:
     'geosite:geolocation-!cn':
       - 'https://dns.cloudflare.com/dns-query#🚀 节点选择'
       - 'https://dns.google/dns-query#🚀 节点选择'
-    'rule-set:PrivateTracker,MyPrivateTracker':
-      - 'https://dns.google/dns-query#📥 PT下载'  
-      - 'https://dns.cloudflare.com/dns-query#📥 PT下载'
-    'rule-set:BanJP':
-      - 'https://dns.google/dns-query#🌏 BanJP'
-      - 'https://dns.cloudflare.com/dns-query#🌏 BanJP'
+
   #  'rule-set:Bahamut':
   #    - 'https://dns.google/dns-query#📽️ 巴哈姆特'
   #    - 'https://dns.cloudflare.com/dns-query#📽️ 巴哈姆特'
