@@ -271,8 +271,9 @@ sniffer:
 
 dns:
   enable: true
-  ipv6: false     ###关闭IPV6 dns解析
-  enhanced-mode: fake-ip
+  ipv6: true     ###关闭IPV6 dns解析
+  respect-rules: true
+  enhanced-mode: redir-host
   fake-ip-range: 198.18.0.1/16
   listen: 0.0.0.0:7874
   nameserver: 
