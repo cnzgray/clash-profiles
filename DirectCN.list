@@ -20,6 +20,8 @@ DOMAIN-SUFFIX,csqqq.top
 # frpc只允许中国ip连接
 DOMAIN-SUFFIX,frp-few.top
 #DOMAIN-SUFFIX,frp-fly.top
+# 测试ipv6
+DOMAIN-SUFFIX,test-ipv6.com
 # tailscale
 DOMAIN-SUFFIX,tailscale.com
 DOMAIN-SUFFIX,tailscale.io
