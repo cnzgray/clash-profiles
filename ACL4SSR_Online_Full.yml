@@ -80,8 +80,8 @@ rules:
   - RULE-SET,Category-games,🎮 游戏平台
   - RULE-SET,Bilibili,📺 哔哩哔哩
   - RULE-SET,ChinaMedia,🌏 国内媒体
-  - RULE-SET,Copilot,☣️ Copilot
   - RULE-SET,Microsoft,Ⓜ️ 微软服务
+  - RULE-SET,Copilot,☣️ Copilot
   - RULE-SET,Apple,🍎 苹果服务
   - RULE-SET,Github,🐱 Github
   - RULE-SET,BanJP,🌏 BanJP
