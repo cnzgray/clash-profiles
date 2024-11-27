@@ -86,10 +86,13 @@ rules:
   - RULE-SET,Github,🐱 Github
   - RULE-SET,BanJP,🌏 BanJP
   - RULE-SET,CustomGFWlist,🚀 节点选择
-  - RULE-SET,ProxyGFWlist,🚀 节点选择
-  - RULE-SET,ChinaDomain,🎯 全球直连
-  - RULE-SET,ChinaCompanyIp,🎯 全球直连,no-resolve
-  - RULE-SET,ChinaIp,🎯 全球直连,no-resolve
+  # - RULE-SET,ProxyGFWlist,🚀 节点选择
+  # - RULE-SET,ChinaDomain,🎯 全球直连
+  # - RULE-SET,ChinaCompanyIp,🎯 全球直连,no-resolve
+  # - RULE-SET,ChinaIp,🎯 全球直连,no-resolve
+  - GEOSITE,geolocation-!cn,🚀 节点选择
+  - GEOSITE,cn,🎯 全球直连
+  - GEOIP,cn,🎯 全球直连,no-resolve
   - IN-TYPE,INNER,DIRECT # 确保内部流量在无法匹配时走直连
   - MATCH,🐟 漏网之鱼
 
@@ -285,7 +288,7 @@ dns:
     - https://dns.alidns.com/dns-query
     - https://dns.pub/dns-query
   nameserver-policy:
-    'rule-set:Unban,DirectPT,DirectCN,SteamCN,ChinaDomain':
+    'rule-set:Unban,DirectPT,DirectCN,SteamCN':
       - 'https://doh.pub/dns-query'
       - 'https://dns.alidns.com/dns-query'
     'rule-set:PrivateTracker,MyPrivateTracker':
@@ -303,22 +306,35 @@ dns:
     'rule-set:Github':
       - 'https://dns.google/dns-query#🐱 Github'
       - 'https://dns.cloudflare.com/dns-query#🐱 Github'
-    'rule-set:CustomGFWlist,ProxyGFWlist':
-      - 'https://dns.cloudflare.com/dns-query#🚀 节点选择'
-      - 'https://dns.google/dns-query#🚀 节点选择'
     'geosite:cn,private':
       - 'https://doh.pub/dns-query'
       - 'https://dns.alidns.com/dns-query'
     'geosite:geolocation-!cn':
       - 'https://dns.cloudflare.com/dns-query#🚀 节点选择'
       - 'https://dns.google/dns-query#🚀 节点选择'
-
-  #  'rule-set:Bahamut':
-  #    - 'https://dns.google/dns-query#📽️ 巴哈姆特'
-  #    - 'https://dns.cloudflare.com/dns-query#📽️ 巴哈姆特'
-  #  'rule-set:Geolocation-!cn':
-  #    - 'https://dns.google/dns-query#🚀 节点选择'
-  #    - 'https://dns.cloudflare.com/dns-query#🚀 节点选择'
+  fallback:
+    - tls://8.8.4.4
+    - tls://1.1.1.1
+  fallback-filter:
+    geoip: true
+    geoip-code: CN
+    ipcidr:
+      - 0.0.0.0/8
+      - 10.0.0.0/8
+      - 100.64.0.0/10
+      - 127.0.0.0/8
+      - 169.254.0.0/16
+      - 172.16.0.0/12
+      - 192.0.0.0/24
+      - 192.0.2.0/24
+      - 192.88.99.0/24
+      - 192.168.0.0/16
+      - 198.18.0.0/15
+      - 198.51.100.0/24
+      - 203.0.113.0/24
+      - 224.0.0.0/4
+      - 240.0.0.0/4
+      - 255.255.255.255/32
 
   fake-ip-filter:
     - "*.lan"
