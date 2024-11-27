@@ -5,3 +5,6 @@ DOMAIN-KEYWORD,codeium.com
 # jetbrains ai
 DOMAIN-SUFFIX,grazie.ai
 DOMAIN-SUFFIX,grazie.aws.intellij.net
+# google
+DOMAIN-SUFFIX,aistudio.google.com
+DOMAIN-SUFFIX,ai.google.dev
