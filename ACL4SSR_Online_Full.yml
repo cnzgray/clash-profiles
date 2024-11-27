@@ -30,7 +30,7 @@ proxy-groups:
   - {name: ♻️ 自动选择, <<: *ot}
   - {name: 📲 电报信息, <<: *o1}
   - {name: 📱 Twitter, <<: *o1}
-  - {name: 💬 OpenAi, <<: *o1}
+  - {name: 🤖 人工智能, <<: *o1}
   - {name: 🎬 油管视频, <<: *o1}
   - {name: 🎥 奈飞视频, <<: *o1}
   - {name: 🏰 Disney, <<: *o1}
@@ -70,8 +70,11 @@ rules:
   - RULE-SET,MyPrivateTracker,📥 PT下载
   - RULE-SET,Telegram,📲 电报信息
   - RULE-SET,Twitter,📱 Twitter
-  - RULE-SET,OpenAi,💬 OpenAi
-  - RULE-SET,MyAiCopilot,💬 OpenAi
+  - RULE-SET,OpenAi,🤖 人工智能
+  - RULE-SET,Copilot,🤖 人工智能
+  - RULE-SET,Claude,🤖 人工智能
+  - RULE-SET,Gemini,🤖 人工智能
+  - RULE-SET,MyAiCopilot,🤖 人工智能
   - RULE-SET,YouTube,🎬 油管视频
   - RULE-SET,Disney,🏰 Disney
   - RULE-SET,Netflix,🎥 奈飞视频
@@ -126,7 +129,21 @@ rule-providers:
     url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Twitter.yaml"
   OpenAi:
     <<: *pc
-    url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/OpenAi.yaml"
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/OpenAI/OpenAI_No_Resolve.yaml"
+  Copilot:
+    <<: *pc
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Copilot/Copilot_No_Resolve.yaml"
+  Claude:
+    <<: *pc
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Claude/Claude_No_Resolve.yaml"
+  Gemini:
+    <<: *pc
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Gemini/Gemini_No_Resolve.yaml"
+  MyAiCopilot:
+    <<: *pc
+    url: "https://raw.githubusercontent.com/cnzgray/clash-profiles/master/AiCopilot.list"
+    format: text
+
   YouTube:
     <<: *pc
     url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/YouTube.yaml"
@@ -135,7 +152,7 @@ rule-providers:
     url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Netflix.yaml"
   Disney:
     <<: *pc
-    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Disney/Disney.yaml" 
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Disney/Disney_No_Resolve.yaml" 
   Bahamut:
     <<: *pc
     url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Bahamut.yaml"
@@ -160,9 +177,6 @@ rule-providers:
   Microsoft:
     <<: *pc
     url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Microsoft.yaml"
-  Copilot:
-    <<: *pc
-    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Copilot/Copilot_No_Resolve.yaml"
   Apple:
     <<: *pc
     url: "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Apple.yaml"
@@ -200,10 +214,6 @@ rule-providers:
   BanJP:
     <<: *pc
     url: "https://raw.githubusercontent.com/cnzgray/clash-profiles/master/BanIP_JP.list"
-    format: text
-  MyAiCopilot:
-    <<: *pc
-    url: "https://raw.githubusercontent.com/cnzgray/clash-profiles/master/AiCopilot.list"
     format: text
 
 ######################################################################
@@ -300,7 +310,7 @@ dns:
     'rule-set:Copilot':
       - 'https://dns.google/dns-query#☣️ Copilot'
       - 'https://dns.cloudflare.com/dns-query#☣️ Copilot'
-    'rule-set:OpenAi':
+    'rule-set:OpenAi,Copilot,Claude,Gemini,MyAiCopilot':
       - 'https://dns.google/dns-query#💬 OpenAi'
       - 'https://dns.cloudflare.com/dns-query#💬 OpenAi'
     'rule-set:Github':
