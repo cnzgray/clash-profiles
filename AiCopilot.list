@@ -8,3 +8,5 @@ DOMAIN-SUFFIX,grazie.aws.intellij.net
 # google
 DOMAIN-SUFFIX,aistudio.google.com
 DOMAIN-SUFFIX,ai.google.dev
+# groq.com
+DOMAIN-SUFFIX,groq.com
