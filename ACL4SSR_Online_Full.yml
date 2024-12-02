@@ -38,7 +38,6 @@ proxy-groups:
   - {name: 📺 哔哩哔哩, type: select, proxies: [🎯 全球直连, 🇨🇳 台湾节点, 🇭🇰 香港节点]}
   - {name: 🌎 国外媒体, <<: *o1}
   - {name: 🌏 国内媒体, type: select, proxies: [🎯 全球直连, 🇨🇳 台湾节点, 🇭🇰 香港节点, 🚀 节点选择]}
-  - {name: ☣️ Copilot, <<: *o1}
   - {name: 🍎 苹果服务, <<: *o2}
   - {name: Ⓜ️ 微软服务, <<: *o1}
   - {name: 🎮 游戏平台, <<: *o1}
@@ -86,7 +85,6 @@ rules:
   - RULE-SET,Bilibili,📺 哔哩哔哩
   - RULE-SET,ChinaMedia,🌏 国内媒体
   - RULE-SET,Microsoft,Ⓜ️ 微软服务
-  - RULE-SET,Copilot,☣️ Copilot
   - RULE-SET,Apple,🍎 苹果服务
   - RULE-SET,Github,🐱 Github
   - RULE-SET,OnlyJP,🇯🇵 日本节点
@@ -315,12 +313,9 @@ dns:
     'rule-set:BanJP':
       - 'https://dns.google/dns-query#🌏 BanJP'
       - 'https://dns.cloudflare.com/dns-query#🌏 BanJP'
-    'rule-set:Copilot':
-      - 'https://dns.google/dns-query#☣️ Copilot'
-      - 'https://dns.cloudflare.com/dns-query#☣️ Copilot'
     'rule-set:OpenAi,Copilot,Claude,Gemini,MyAiCopilot':
-      - 'https://dns.google/dns-query#💬 OpenAi'
-      - 'https://dns.cloudflare.com/dns-query#💬 OpenAi'
+      - 'https://dns.google/dns-query#🤖 人工智能'
+      - 'https://dns.cloudflare.com/dns-query#🤖 人工智能'
     'rule-set:Github':
       - 'https://dns.google/dns-query#🐱 Github'
       - 'https://dns.cloudflare.com/dns-query#🐱 Github'
