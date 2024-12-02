@@ -69,6 +69,8 @@ rules:
   - RULE-SET,MyPrivateTracker,📥 PT下载
   - RULE-SET,Telegram,📲 电报信息
   - RULE-SET,Twitter,📱 Twitter
+  - RULE-SET,OnlyJP,🇯🇵 日本节点
+  - RULE-SET,BanJP,🌏 BanJP
   #AI相关{{{
   - RULE-SET,OpenAi,🤖 人工智能
   - RULE-SET,Copilot,🤖 人工智能
@@ -87,8 +89,6 @@ rules:
   - RULE-SET,Microsoft,Ⓜ️ 微软服务
   - RULE-SET,Apple,🍎 苹果服务
   - RULE-SET,Github,🐱 Github
-  - RULE-SET,OnlyJP,🇯🇵 日本节点
-  - RULE-SET,BanJP,🌏 BanJP
   - RULE-SET,CustomGFWlist,🚀 节点选择
   # - RULE-SET,ProxyGFWlist,🚀 节点选择
   # - RULE-SET,ChinaDomain,🎯 全球直连
@@ -283,6 +283,7 @@ sniffer:
   - "+.apple.com"
   - "Mijia Cloud"
   - "dlg.io.mi.com"
+  - "+.cloudflare-ech.com"
   - "+.rc.sunlogin.net"
   - "+.oray.com"
   - "+.zshare.site"
